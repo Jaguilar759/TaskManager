@@ -1,0 +1,42 @@
+@switch (typeButtonMaterial()) {
+  @case ('Basic') {
+    <button mat-button
+            [type]="typeButton()"
+            [color]="colorButton()"
+            [matTooltip]="tooltipButton() | translate"
+            [disabled]="disabledButton()"
+            >
+      {{ textButton() | translate }}
+    </button>
+  }
+  @case ('Raised') {
+    <button mat-raised-button
+            [type]="typeButton()"
+            [color]="colorButton()"
+            [matTooltip]="tooltipButton() | translate"
+            [disabled]="disabledButton()"
+            >
+      {{ textButton() | translate }}
+    </button>
+  }
+  @case ('Stroked') {
+    <button mat-stroked-button
+            [type]="typeButton()"
+            [color]="colorButton()"
+            [matTooltip]="tooltipButton() | translate"
+            [disabled]="disabledButton()"
+            >
+      {{ textButton() | translate }}
+    </button>
+  }
+  @case ('Flat') {
+    <button mat-flat-button
+            [type]="typeButton()"
+            [color]="colorButton()"
+            [matTooltip]="tooltipButton() | translate"
+            [disabled]="disabledButton()"
+            >
+      {{ textButton() | translate }}
+    </button>
+  }
+}

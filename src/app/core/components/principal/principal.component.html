@@ -1,0 +1,8 @@
+<div>
+  <app-menu (toggleSidebar)="onToggleSidebar($event)"></app-menu>
+  <main id="main" class="main p-3" [ngClass]="{ 'expanded': isExpanded }">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

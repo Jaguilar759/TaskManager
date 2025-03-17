@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{actionTask() | translate }}</h2>
+<mat-dialog-content>
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="formTask()" (ngSubmit)="submitForm()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <app-text [formGroup]="formTask()" [controlName]="'title'" [placeholder]="'taskTitle'" [label]="'title'" />
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <app-text [formGroup]="formTask()" [controlName]="'description'" [placeholder]="'taskDescription'" [label]="'description'" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-2">
+                        <app-radio-button [formGroup]="formTask()" [controlName]="'status'" [options]="options()" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>    
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="d-flex justify-content-between w-100 mt-2">
+        <app-button [textButton]="'goBack'" [typeButtonMaterial]="'Raised'" (click)="cancel()" />
+        
+        <div class="text-end">
+            @if(!idTask){
+                <app-button class="me-2" [textButton]="'clean'" [typeButtonMaterial]="'Raised'" (click)="clearForm()" />
+            }
+            <app-button [textButton]="'submit'" 
+                [typeButton]="'submit'" 
+                (click)="submitForm()"
+                [disabledButton]="isLoading() || savingInformation()"
+            />
+        </div>
+    </div>
+</mat-dialog-actions>

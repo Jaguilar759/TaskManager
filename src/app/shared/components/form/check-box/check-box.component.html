@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup()">
+  <mat-checkbox
+    [formControlName]="controlName()"
+    [checked]="this.formGroup().controls[this.controlName()]?.value"
+    [labelPosition]="labelPosition()"
+    [matTooltip]="tooltip() | translate"
+  >
+    {{label() | translate}}
+  </mat-checkbox>
+</form>

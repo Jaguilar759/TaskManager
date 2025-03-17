@@ -1,0 +1,41 @@
+<aside id="sidebar" class="sidebar" [class.expand]="isExpanded()">
+  <div class="d-flex">
+    <button class="toggle-btn" type="button" (click)="toggleSidebarMenu()">
+      <i class="bi bi-grid"></i>
+    </button>
+    <div class="sidebar-logo">
+      <a href="#">{{'taskManagement' | translate}}</a>
+    </div>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="sidebar-item">
+      <a href="#" class="sidebar-link">
+        <i class="bbi bi-house-door"></i>
+        <span>{{'home' | translate}}</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a [routerLink]="['/tasks']" [routerLinkActive]="'active'" class="sidebar-link">
+        <i class="bi bi-list-task"></i>
+        <span>{{'tasks' | translate}}</span>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <a class="sidebar-link" [matMenuTriggerFor]="menu">
+      <i class="bi bi-translate"></i>
+      <span>{{'language' | translate}}</span>
+    </a>
+    <mat-menu #menu="matMenu">
+      @for (lang of lenguages; track $index) {
+          <button mat-menu-item (click)="selectLanguage(lang.code)">
+              <span>{{ lang.name | translate }}</span>
+          </button>
+      }
+    </mat-menu>
+    <a class="sidebar-link" (click)="logout()">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>{{'signOut' | translate}}</span>
+    </a>
+  </div>
+</aside>

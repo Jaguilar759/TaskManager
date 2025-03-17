@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup()">
+    <mat-radio-group [formControlName]="controlName()">
+        @for (item of options(); track item.value) {
+            <mat-radio-button [value]="item.value">{{item.label | translate}}</mat-radio-button>
+        }
+    </mat-radio-group>
+    @if (isValidField(controlName())) {
+        <mat-error style="font-size: 0.78rem; padding-left: 11px;">{{ getFieldError(controlName()) }}</mat-error>
+    }
+</form>
+  

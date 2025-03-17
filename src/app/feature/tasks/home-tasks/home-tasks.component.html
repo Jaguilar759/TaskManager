@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-12">
+      <app-breadcrumb [routes]="[
+      { label: 'home', url: '/', icon: 'bi bi-house-door' },
+      { label: 'tasks'}]"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-basic-table
+        [displayedColumns]="displayedColumns"
+        [tableData]="tableData"
+        [columnHeaders]="columHeader"
+        [actionsInputsColumn]="actionsInputsColumn"
+        [showButtonNewRecord]="true"
+        [isLoadingResults]="isLoadingResults"
+        (buttonNewEvent)="handleNewRecord()"
+        (buttonActionEvent)="handleSelectAction($event)"
+      />
+    </div>
+  </div>
+  
